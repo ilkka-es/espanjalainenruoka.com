@@ -5,7 +5,7 @@ category: Ruoka ohjeet
 time: 15 min + jäähdytys
 difficulty: Helppo
 date: 2024-01-20
-heroImage: https://images.unsplash.com/photo-1604413191066-4dd20bedf486?w=1400&h=700&fit=crop
+heroImage: https://images.unsplash.com/photo-1624382075163-a4fdb99b99ec?w=1400&h=700&fit=crop
 description: Gazpacho on Andalusian aurinkoinen vastaus kuumaan kesään — kylmä, raaka tomaattikeitto joka on samaan aikaan yksinkertaista ja syvästi makuisaa. Parhaimmillaan kesän kypsimmistä tomaateista tehtynä.
 seoDescription: Perinteinen espanjalainen Gazpacho Andaluz resepti. Kylmä tomaattikeitto kesäkurpitsalla, paprikalla ja kurkulla. Nopea 15 minuutin ohje.
 ingredients:
@@ -38,12 +38,10 @@ Espanjalaiset sanovat: *"El gazpacho lo hace el tomate"* — gazpachon tekee tom
 
 2. Pilko tomaatit, paprika, kurkku ja valkosipuli karkeasti. Laita kaikki ainekset — myös liotettu leipä — tehosekoittimeen tai blenderiin.
 
-![Ainekset blenderissä](https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=800&h=500&fit=crop)
-
 3. Blendaa täysin sileäksi, lisäämällä oliiviöljy hitaasti joukkoon moottorin käydessä. Lisää etikka ja suola. Maista ja säädä makua.
 
 4. Siivilöi sileäksi halutessasi. Jäähdytä jääkaapissa vähintään 2 tuntia — **mieluiten yön yli**. Kylmä gazpacho on aina parempaa!
 
 5. Tarjoile kylmissä kulhoissa tai laseissa. Viimeistele kuutioitujen kasvisten, oliiviöljyn ja tuoreen basilikan kanssa.
 
-![Valmis gazpacho](https://images.unsplash.com/photo-1604413191066-4dd20bedf486?w=800&h=500&fit=crop)
+![Valmis gazpacho](https://images.unsplash.com/photo-1624382075163-a4fdb99b99ec?w=800&h=500&fit=crop)

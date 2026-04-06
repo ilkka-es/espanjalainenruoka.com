@@ -5,7 +5,7 @@ category: Ruoka ohjeet
 time: 40 min
 difficulty: Keskitaso
 date: 2024-01-25
-heroImage: https://images.unsplash.com/photo-1510693206972-df098062cb71?w=1400&h=700&fit=crop
+heroImage: https://images.unsplash.com/photo-1639669794539-952631b44515?w=1400&h=700&fit=crop
 description: Espanjalainen tortilla on maan kansallisruoka — paksu munakas perunalla ja sipulilla. Hyvä tortilla on löysä sisältä ja rapea ulkoa.
 seoDescription: Perinteinen espanjalainen Tortilla Española resepti. Paksu munakas perunalla ja sipulilla. Täydellinen tapas tai lounas.
 ingredients:

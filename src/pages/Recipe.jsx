@@ -113,8 +113,8 @@ export default function Recipe() {
           {/* Ingredients — sticky sidebar */}
           <aside className="rp-ingredients">
             <div className="rp-ingredients-inner">
-              <h2 className="rp-section-title">Ainekset</h2>
-              <p className="rp-ingredients-hint">Klikkaa ainesosaa rastittaaksesi sen</p>
+              <h2 className="rp-section-title">Muistilista</h2>
+              <p className="rp-ingredients-hint">Tarvitset nämä!</p>
               {recipe.ingredients.map((group, gi) => (
                 <div key={gi} className="rp-ingredient-group">
                   {group.group && <h3 className="rp-group-title">{group.group}</h3>}
@@ -153,7 +153,8 @@ export default function Recipe() {
                 ol: ({ children }) => <ol className="rp-step-list">{children}</ol>,
                 li: ({ children }) => (
                   <li className="rp-step">
-                    <div className="rp-step-header">{children}</div>
+                    <div className="rp-step-number" />
+                    <div className="rp-step-content">{children}</div>
                   </li>
                 ),
                 p: ({ children }) => <p className="rp-step-text">{children}</p>,

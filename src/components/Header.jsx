@@ -8,12 +8,6 @@ export default function Header() {
           <span className="logo-badge">ER</span>
           <span className="logo-text">EspanjalainenRuoka</span>
         </Link>
-        <nav className="nav">
-          <Link to="/">Reseptit</Link>
-          <Link to="/">Viinit</Link>
-          <Link to="/">Elämää Espanjassa</Link>
-        </nav>
-        <Link to="/" className="nav-cta">Tutustu →</Link>
       </div>
     </header>
   )

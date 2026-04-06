@@ -12,8 +12,8 @@ ingredients:
   - group: Tärkeää tietää ennen matkaa
     items:
       - Madridilainen päivärytmi on todella myöhäinen — sopeudu siihen
-      - Lounas on pääateria ja kestää klo 14–16
-      - Illallinen alkaa aikaisintaan klo 21, useimmiten klo 22–23
+      - Lounas on pääateria ja tarjoillaan klo 13–16
+      - Illallinen alkaa aikaisintaan klo 20, useimmiten klo 21–23
       - Siesta on yhä todellinen — monet kaupat sulkevat klo 14–17
       - Gran Vía on turistien valtaväylä — paikallinen käyttää metroä
 ---
@@ -45,11 +45,14 @@ Klassisia tapas-tilauksia:
 - *Patatas bravas* — paistetut perunat pistokastikkeen kanssa
 - *Bocadillo de calamares* — kalmarivoileipä, Madridin ikoninen katuruoka
 
-## Missä asua?
+## Missä yöpyä?
 
-Turistikohteet Malasaña ja Chueca ovat trendikkäitä, mutta hintavia. **Lavapièsissa** on aito kosmopoliittinen tunnelma ja edullisemmat vuokrat — kaupunginosa on monikulttuurinen ja elävä. **Lavapiésin** ulkopuolella myös **Usera** ja **Carabanchel** ovat autenttiset valinnat, joissa suomalainen nähdään kuriositeettina, ei tulonlähteenä.
+- **Malasaña ja Chueca** ovat trendikkäitä, mutta hintavia. 
+- **La Latina:ssa** on aito kosmopoliittinen tunnelma ja ehkä edullisemmat hinnat — kaupunginosa on monikulttuurinen ja elävä.
+- **Gran Via** on Madridin "keskusta".
+- **Barrio Salamanca** hienostoalue. Hyvät ja kalliit shoppailumahdollisuudet sekä hienompia ravintoloita.
 
-Pidempiaikainen asuminen on 30–50 % edullisempaa kuin ydinkeskustassa, ja metro vie kaikkialle nopeasti.
+
 
 ## Vältä näitä turistiansoja
 
