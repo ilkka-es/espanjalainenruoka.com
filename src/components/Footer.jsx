@@ -13,7 +13,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2024 EspanjalainenRuoka.com</span>
+        <span>Espanjalainenruoka.com</span>
       </div>
     </footer>
   )
