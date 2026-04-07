@@ -20,5 +20,5 @@ function markdownPlugin() {
 export default defineConfig({
   plugins: [react(), markdownPlugin()],
   // For GitHub Pages with a custom domain keep '/'. For github.io/repo-name set to '/repo-name/'
-  base: '/espanjalainenruoka.com/',
+  base: '/',
 })
