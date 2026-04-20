@@ -23,7 +23,7 @@ function sitemapPlugin() {
   return {
     name: 'sitemap',
     closeBundle() {
-      const baseUrl = 'https://espanjalainenruoka.com'
+      const baseUrl = 'https://www.espanjalainenruoka.com'
       const contentDir = path.resolve(__dirname, 'src/content')
       const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'))
 
@@ -31,7 +31,7 @@ function sitemapPlugin() {
         const raw = fs.readFileSync(path.join(contentDir, file), 'utf-8')
         const { data } = matter(raw)
         const lastmod = data.date ? new Date(data.date).toISOString().split('T')[0] : ''
-        return `  <url>\n    <loc>${baseUrl}/#/resepti/${data.slug}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+        return `  <url>\n    <loc>${baseUrl}/resepti/${data.slug}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
       })
 
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

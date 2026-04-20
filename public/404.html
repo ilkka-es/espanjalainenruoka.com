@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EspanjalainenRuoka.com</title>
+    <script>
+      // Redirect non-www to www before doing SPA routing
+      if (window.location.hostname === 'espanjalainenruoka.com') {
+        window.location.replace(
+          'https://www.espanjalainenruoka.com' +
+          window.location.pathname +
+          window.location.search +
+          window.location.hash
+        );
+      }
+    </script>
+    <script>
+      // GitHub Pages SPA redirect trick
+      // Encodes the path into a query param so index.html can restore it
+      // pathSegmentsToKeep = 0 for custom domain (root), 1 for /repo-name/ subdirectory
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.host + '/' +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

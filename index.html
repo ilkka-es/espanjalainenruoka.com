@@ -20,6 +20,33 @@
     <meta name="twitter:title" content="EspanjalainenRuoka.com" />
     <meta name="twitter:description" content="Espanjalainen ruoka, viinit ja elämä Espanjassa." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=630&fit=crop" />
+    <!-- Redirect non-www to www -->
+    <script>
+      (function() {
+        if (window.location.hostname === 'espanjalainenruoka.com') {
+          window.location.replace(
+            'https://www.espanjalainenruoka.com' +
+            window.location.pathname +
+            window.location.search +
+            window.location.hash
+          );
+        }
+      })();
+    </script>
+    <!-- Restore path encoded by 404.html for GitHub Pages SPA routing -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            decoded[0] + (decoded[1] ? '&' + decoded[1] : '') + l.hash
+          );
+        }
+      }(window.location));
+    </script>
     <!-- Google Consent Mode v2 — defaults set BEFORE GA loads -->
     <script>
       window.dataLayer = window.dataLayer || [];

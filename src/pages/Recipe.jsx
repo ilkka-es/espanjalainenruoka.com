@@ -4,12 +4,41 @@ import ReactMarkdown from 'react-markdown'
 import { RECIPES } from '../lib/loadRecipes'
 import './Recipe.css'
 
+const WWW_BASE = 'https://www.espanjalainenruoka.com'
+
 function RecipeSEO({ recipe }) {
   useEffect(() => {
+    const pageUrl = `${WWW_BASE}/resepti/${recipe.slug}`
+
     document.title = `${recipe.title} — EspanjalainenRuoka.com`
 
     let desc = document.querySelector('meta[name="description"]')
     if (desc) desc.setAttribute('content', recipe.seoDescription)
+
+    // Canonical
+    let canonical = document.querySelector('link[rel="canonical"]')
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.rel = 'canonical'
+      document.head.appendChild(canonical)
+    }
+    canonical.href = pageUrl
+
+    // og:url
+    let ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogUrl) ogUrl.setAttribute('content', pageUrl)
+
+    // og:title
+    let ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) ogTitle.setAttribute('content', `${recipe.title} — EspanjalainenRuoka.com`)
+
+    // og:description
+    let ogDesc = document.querySelector('meta[property="og:description"]')
+    if (ogDesc) ogDesc.setAttribute('content', recipe.seoDescription)
+
+    // og:image
+    let ogImage = document.querySelector('meta[property="og:image"]')
+    if (ogImage) ogImage.setAttribute('content', recipe.heroImage)
 
     // JSON-LD structured data
     const allIngredients = (recipe.ingredients || []).flatMap(g => g.items)
@@ -22,10 +51,11 @@ function RecipeSEO({ recipe }) {
       cookTime: recipe.time,
       recipeCategory: recipe.category,
       inLanguage: 'fi',
+      url: pageUrl,
       publisher: {
         '@type': 'Organization',
         name: 'EspanjalainenRuoka.com',
-        url: 'https://www.espanjalainenruoka.com',
+        url: WWW_BASE,
       },
       recipeIngredient: allIngredients,
     }
@@ -41,6 +71,11 @@ function RecipeSEO({ recipe }) {
     return () => {
       document.title = 'EspanjalainenRuoka.com — Espanjalainen ruoka, viinit ja elämä Espanjassa'
       if (desc) desc.setAttribute('content', 'Yli 500 espanjalaista reseptiä, viinisuosituksia ja vinkkejä elämään Espanjassa.')
+      if (canonical) canonical.href = `${WWW_BASE}/`
+      if (ogUrl) ogUrl.setAttribute('content', `${WWW_BASE}/`)
+      if (ogTitle) ogTitle.setAttribute('content', 'EspanjalainenRuoka.com — Espanjalainen ruoka, viinit ja elämä Espanjassa')
+      if (ogDesc) ogDesc.setAttribute('content', 'Yli 500 espanjalaista reseptiä, viinisuosituksia ja vinkkejä elämään Espanjassa.')
+      if (ogImage) ogImage.setAttribute('content', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=630&fit=crop')
       document.getElementById('recipe-jsonld')?.remove()
     }
   }, [recipe])
