@@ -18,7 +18,14 @@ export default function Home() {
     <>
       {/* ── Hero ── */}
       <section className="hero">
-        <div className="hero-img" />
+        <img
+          className="hero-img"
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&h=900&fit=crop&q=80&fm=webp"
+          alt=""
+          fetchPriority="high"
+          width="1800"
+          height="900"
+        />
         <div className="hero-overlay" />
         <div className="hero-inner">
           <div className="hero-tag">
@@ -81,7 +88,7 @@ export default function Home() {
             {featured && (
               <Link to={`/resepti/${featured.slug}`} className="recipe-card card-featured">
                 <div className="card-image">
-                  <img src={featured.heroImage} alt={featured.title} />
+                  <img src={featured.heroImage} alt={featured.title} fetchPriority="high" />
                   <div className="card-overlay" />
                   <span className="card-badge">{featured.category}</span>
                   <div className="card-text-overlay">
@@ -97,7 +104,7 @@ export default function Home() {
             {rest.map(recipe => (
               <Link key={recipe.id} to={`/resepti/${recipe.slug}`} className="recipe-card">
                 <div className="card-image">
-                  <img src={recipe.heroImage} alt={recipe.title} />
+                  <img src={recipe.heroImage} alt={recipe.title} loading="lazy" />
                   <div className="card-overlay" />
                   <span className="card-badge">{recipe.category}</span>
                 </div>
