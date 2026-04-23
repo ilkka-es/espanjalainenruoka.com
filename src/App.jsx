@@ -8,6 +8,7 @@ import CookieConsentBanner from './components/CookieConsent'
 import Home from './pages/Home'
 
 const Recipe = lazy(() => import('./pages/Recipe'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/resepti/:slug" element={<Recipe />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <Footer />
