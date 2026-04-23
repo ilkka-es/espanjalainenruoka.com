@@ -1,6 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
+
+const REDIRECTS = {
+  '/paella/': '/resepti/paella-valenciana',
+  '/paella':  '/resepti/paella-valenciana',
+}
 
 export default function NotFound() {
+  const { pathname } = useLocation()
+  const target = REDIRECTS[pathname]
+  if (target) return <Navigate to={target} replace />
+
   return (
     <main style={{
       minHeight: '60vh',
