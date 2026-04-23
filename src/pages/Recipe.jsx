@@ -122,7 +122,9 @@ export default function Recipe() {
         <header className="rp-header">
           <span className="rp-category">{recipe.category}</span>
           <h1 className="rp-title">{recipe.title}</h1>
+          {(recipe.time || recipe.difficulty) && (
           <div className="rp-meta-row">
+            {recipe.time && (
             <div className="rp-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               <div>
@@ -130,7 +132,9 @@ export default function Recipe() {
                 <span className="rp-meta-value">{recipe.time}</span>
               </div>
             </div>
-            <div className="rp-meta-divider" />
+            )}
+            {recipe.time && recipe.difficulty && <div className="rp-meta-divider" />}
+            {recipe.difficulty && (
             <div className="rp-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <div>
@@ -138,7 +142,9 @@ export default function Recipe() {
                 <span className="rp-meta-value">{recipe.difficulty}</span>
               </div>
             </div>
+            )}
           </div>
+          )}
           <p className="rp-description">{recipe.description}</p>
         </header>
 
@@ -150,7 +156,7 @@ export default function Recipe() {
             <div className="rp-ingredients-inner">
               <h2 className="rp-section-title">Muistilista</h2>
               <p className="rp-ingredients-hint">Tarvitset nämä!</p>
-              {recipe.ingredients.map((group, gi) => (
+              {(recipe.ingredients || []).map((group, gi) => (
                 <div key={gi} className="rp-ingredient-group">
                   {group.group && <h3 className="rp-group-title">{group.group}</h3>}
                   <ul className="rp-ingredient-list">
