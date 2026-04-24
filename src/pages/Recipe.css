@@ -67,6 +67,11 @@
 }
 
 .rp-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.rp-category {
   display: inline-block;
   background: var(--red);
   color: #fff;
@@ -445,6 +450,11 @@
   gap: 4px;
 }
 
+.rp-related-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
 .rp-related-category {
   font-size: 10px;
   font-weight: 700;

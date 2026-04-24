@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logoImg from '../assets/logo.png'
 
 export default function Footer() {
   return (
@@ -6,8 +7,9 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-left">
           <Link to="/" className="footer-logo">
-            <span className="logo-badge">ER</span>
-            <span className="logo-text">EspanjalainenRuoka</span>
+            <span className="footer-logo-wrap">
+              <img src={logoImg} alt="EspanjalainenRuoka.com" className="logo-img" />
+            </span>
           </Link>
           <p>Espanjalaisen keittiön täydellinen opas suomalaisille.</p>
         </div>

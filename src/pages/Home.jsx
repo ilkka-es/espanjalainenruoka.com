@@ -1,10 +1,25 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
+import { Leaf, Sun, MapPin, Star } from 'lucide-react'
 import { RECIPES, CATEGORIES } from '../lib/loadRecipes'
+import CATEGORY_ICONS from '../lib/categoryIcons'
+
+const FEATURES = [
+  { label: 'Aitoa makua',  sub: 'Perinteitä kunnioittaen',          icon: <Leaf size={22} />,   color: '#6B7F5E', bg: 'rgba(107,127,94,0.12)'  },
+  { label: 'Aurinkoista',  sub: 'Raaka-aineet parhaimmillaan',       icon: <Sun size={22} />,    color: '#E8A400', bg: 'rgba(232,164,0,0.12)'   },
+  { label: 'Espanjasta',   sub: 'Tarinoita ja inspiraatiota',        icon: <MapPin size={22} />, color: '#C41E3A', bg: 'rgba(196,30,58,0.10)'   },
+  { label: 'Herkullista',  sub: 'Reseptit, joista tulee suosikkeja', icon: <Star size={22} />,   color: '#C41E3A', bg: 'rgba(196,30,58,0.10)'   },
+]
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState('Kaikki')
-  const [search, setSearch] = useState('')
+  const [searchParams] = useSearchParams()
+  const [activeFilter, setActiveFilter] = useState(() => searchParams.get('category') || 'Kaikki')
+  const [search, setSearch] = useState(() => searchParams.get('search') || '')
+
+  useEffect(() => {
+    setActiveFilter(searchParams.get('category') || 'Kaikki')
+    setSearch(searchParams.get('search') || '')
+  }, [searchParams])
 
   const filtered = RECIPES.filter(r => {
     const matchesFilter = activeFilter === 'Kaikki' || r.category === activeFilter
@@ -20,46 +35,43 @@ export default function Home() {
       <section className="hero">
         <img
           className="hero-img"
-          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&h=900&fit=crop&q=80&fm=webp"
+          src="/hero-bg.png"
           alt=""
           fetchPriority="high"
-          width="1800"
-          height="900"
         />
         <div className="hero-overlay" />
         <div className="hero-inner">
-          <div className="hero-tag">
-            <span className="hero-tag-dot" />
-            Espanjalainen Gastronomia
-          </div>
           <h1 className="hero-title">
-            <span className="hero-line1">Espanjalainen</span>
-            <span className="hero-line2"><em>ruoka, viinit</em></span>
-            <span className="hero-line3">ja elämä Espanjassa</span>
+            Aitoa makua<br/>Espanjan<br/>sydämestä.
           </h1>
-          <div className="search-wrap">
-            <div className="search-bar">
-              <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-              </svg>
-              <input
-                type="text"
-                placeholder="Etsi reseptiä tai ainesosaa..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-              />
-              <button className="search-btn">Etsi</button>
-            </div>
-          </div>
-          <div className="hero-stats">
-            <div className="stat"><strong>500+</strong><span>Reseptiä</span></div>
-            <div className="stat-divider" aria-hidden="true" />
-            <div className="stat"><strong>17</strong><span>Aluetta</span></div>
-            <div className="stat-divider" aria-hidden="true" />
-            <div className="stat"><strong>80+</strong><span>Kokkia</span></div>
-          </div>
+          <div className="hero-divider" />
+          <p className="hero-subtitle">
+            Reseptit, raaka-aineet ja tarinat suoraan<br/>
+            Espanjan sydämestä. Aitoa. Aurinkoista.<br/>
+            Herkullista.
+          </p>
+        </div>
+        <div className="hero-wave">
+          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,32 C240,72 480,0 720,32 C960,64 1200,8 1440,32 L1440,72 L0,72 Z" fill="var(--cream)" />
+          </svg>
         </div>
       </section>
+
+      {/* ── Feature strip ── */}
+      <div className="feature-strip">
+        {FEATURES.map(f => (
+          <div key={f.label} className="feature-item">
+            <div className="feature-icon" style={{ color: f.color, background: f.bg }}>
+              {f.icon}
+            </div>
+            <div className="feature-text">
+              <strong>{f.label}</strong>
+              <span>{f.sub}</span>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* ── Main content ── */}
       <main className="main">
@@ -71,11 +83,11 @@ export default function Home() {
                 className={`filter-btn ${activeFilter === f ? 'active' : ''}`}
                 onClick={() => setActiveFilter(f)}
               >
-                {f}
+                {CATEGORY_ICONS[f]}{f}
               </button>
             ))}
           </div>
-          <span className="results-count">{filtered.length} reseptiä</span>
+          {search && <span className="results-count">&ldquo;{search}&rdquo; — {filtered.length} tulosta</span>}
         </div>
 
         {filtered.length === 0 ? (
@@ -90,7 +102,7 @@ export default function Home() {
                 <div className="card-image">
                   <img src={featured.heroImage} alt={featured.title} fetchPriority="high" />
                   <div className="card-overlay" />
-                  <span className="card-badge">{featured.category}</span>
+                  <span className="card-badge">{CATEGORY_ICONS[featured.category]}{featured.category}</span>
                   <div className="card-text-overlay">
                     <h2 className="card-title-lg">{featured.title}</h2>
                     <div className="card-meta">
@@ -106,7 +118,7 @@ export default function Home() {
                 <div className="card-image">
                   <img src={recipe.heroImage} alt={recipe.title} loading="lazy" />
                   <div className="card-overlay" />
-                  <span className="card-badge">{recipe.category}</span>
+                  <span className="card-badge">{CATEGORY_ICONS[recipe.category]}{recipe.category}</span>
                 </div>
                 <div className="card-body">
                   <h3 className="card-title">{recipe.title}</h3>

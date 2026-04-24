@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
+import CATEGORY_ICONS from '../lib/categoryIcons'
 import ReactMarkdown from 'react-markdown'
 import { RECIPES } from '../lib/loadRecipes'
 import './Recipe.css'
@@ -120,7 +121,7 @@ export default function Recipe() {
 
         {/* Title block */}
         <header className="rp-header">
-          <span className="rp-category">{recipe.category}</span>
+          <span className="rp-category">{CATEGORY_ICONS[recipe.category]}{recipe.category}</span>
           <h1 className="rp-title">{recipe.title}</h1>
           {(recipe.time || recipe.difficulty) && (
           <div className="rp-meta-row">
@@ -227,7 +228,7 @@ export default function Recipe() {
                     <img src={r.heroImage} alt={r.title} loading="lazy" />
                   </div>
                   <div className="rp-related-body">
-                    <span className="rp-related-category">{r.category}</span>
+                    <span className="rp-related-category">{CATEGORY_ICONS[r.category]}{r.category}</span>
                     <h3>{r.title}</h3>
                     <span className="rp-related-time">⏱ {r.time}</span>
                   </div>

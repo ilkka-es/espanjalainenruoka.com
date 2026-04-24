@@ -6,3 +6,13 @@ export const RECIPES = Object.values(files)
   .sort((a, b) => new Date(b.date) - new Date(a.date))
 
 export const CATEGORIES = ['Kaikki', 'Ruoka ohjeet', 'Viinit & juomat', 'Elämää Espanjassa']
+
+export const CATEGORY_SLUGS = {
+  'ruoka-ohjeet':      'Ruoka ohjeet',
+  'viinit-ja-juomat':  'Viinit & juomat',
+  'elamaa-espanjassa': 'Elämää Espanjassa',
+}
+
+export const SLUG_FOR_CATEGORY = Object.fromEntries(
+  Object.entries(CATEGORY_SLUGS).map(([slug, name]) => [name, slug])
+)

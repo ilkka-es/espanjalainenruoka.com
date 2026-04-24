@@ -1,7 +1,7 @@
 ---
 title: Croquetas de Jamón — espanjalaiset kroketit serranokinkulla
 slug: croquetas-de-jamon-espanjalaiset-kroketit
-category: Tapakset
+category: Ruoka ohjeet
 time: 60 min
 difficulty: Keskitaso
 date: 2026-04-06

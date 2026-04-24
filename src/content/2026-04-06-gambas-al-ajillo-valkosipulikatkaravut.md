@@ -1,7 +1,7 @@
 ---
 title: Gambas al Ajillo — valkosipulikatkaravut espanjalaisittain
 slug: gambas-al-ajillo-valkosipulikatkaravut
-category: Tapakset
+category: Ruoka ohjeet
 time: 15 min
 difficulty: Helppo
 date: 2026-04-06

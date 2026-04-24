@@ -1,7 +1,7 @@
 ---
 title: Patatas Bravas — Espanjan suosituin tapas kotikeittiössä
 slug: patatas-bravas-espanjan-suosituin-tapas
-category: Tapakset
+category: Ruoka ohjeet
 time: 35 min
 difficulty: Helppo
 date: 2026-04-06
