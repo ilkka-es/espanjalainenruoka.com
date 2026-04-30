@@ -35,7 +35,7 @@ export default function Home() {
       <section className="hero">
         <img
           className="hero-img"
-          src="/hero-bg.jpg"
+          src="/hero-bg2.jpg"
           alt=""
           fetchPriority="high"
         />
