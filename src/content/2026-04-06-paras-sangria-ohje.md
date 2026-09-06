@@ -1,6 +1,6 @@
 ---
 title: Paras sangria ohje
-slug: Paras-sangria-ohje
+slug: paras-sangria-ohje
 category: Viinit & juomat
 time: 30 min
 difficulty: Helppo
@@ -41,4 +41,3 @@ Sangrian nimi tulee juoman verenpunaisesta väristä, -sen takia sangria tehdä�
 
 
 Toivottavasti tämän sangria ohjeen avulla nautitte juhlistanne, tai vaikka kesäillasta kotiterassilla! ¡Salud!
-

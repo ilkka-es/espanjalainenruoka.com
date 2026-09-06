@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import CATEGORY_ICONS from '../lib/categoryIcons'
 import ReactMarkdown from 'react-markdown'
-import { RECIPES } from '../lib/loadRecipes'
+import { ChevronDown, Printer, Users } from 'lucide-react'
+import { RECIPES, SLUG_FOR_CATEGORY, categoryLabel } from '../lib/loadRecipes'
 import './Recipe.css'
 
 const WWW_BASE = 'https://www.espanjalainenruoka.com'
@@ -10,6 +11,7 @@ const WWW_BASE = 'https://www.espanjalainenruoka.com'
 function RecipeSEO({ recipe }) {
   useEffect(() => {
     const pageUrl = `${WWW_BASE}/resepti/${recipe.slug}`
+    const imageUrl = recipe.heroImage.startsWith('http') ? recipe.heroImage : `${WWW_BASE}${recipe.heroImage}`
 
     document.title = `${recipe.title} — EspanjalainenRuoka.com`
 
@@ -39,26 +41,32 @@ function RecipeSEO({ recipe }) {
 
     // og:image
     let ogImage = document.querySelector('meta[property="og:image"]')
-    if (ogImage) ogImage.setAttribute('content', recipe.heroImage)
+    if (ogImage) ogImage.setAttribute('content', imageUrl)
 
     // JSON-LD structured data
     const allIngredients = (recipe.ingredients || []).flatMap(g => g.items)
+    const instructions = recipe.body
+      .split('\n')
+      .filter(line => /^\d+\.\s/.test(line.trim()))
+      .map(line => ({ '@type': 'HowToStep', text: line.replace(/^\d+\.\s*/, '').replace(/\*\*/g, '') }))
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Recipe',
       name: recipe.title,
       description: recipe.seoDescription,
-      image: recipe.heroImage,
-      cookTime: recipe.time,
+      image: imageUrl,
       recipeCategory: recipe.category,
       inLanguage: 'fi',
       url: pageUrl,
+      datePublished: recipe.date,
       publisher: {
         '@type': 'Organization',
         name: 'EspanjalainenRuoka.com',
         url: WWW_BASE,
       },
       recipeIngredient: allIngredients,
+      ...(recipe.servings ? { recipeYield: recipe.servings } : {}),
+      ...(instructions.length ? { recipeInstructions: instructions } : {}),
     }
 
     let existing = document.getElementById('recipe-jsonld')
@@ -71,12 +79,12 @@ function RecipeSEO({ recipe }) {
 
     return () => {
       document.title = 'EspanjalainenRuoka.com — Espanjalainen ruoka, viinit ja elämä Espanjassa'
-      if (desc) desc.setAttribute('content', 'Yli 500 espanjalaista reseptiä, viinisuosituksia ja vinkkejä elämään Espanjassa.')
+      if (desc) desc.setAttribute('content', 'Aidot espanjalaiset reseptit suomeksi — selkeät ohjeet ja tarinat Espanjasta.')
       if (canonical) canonical.href = `${WWW_BASE}/`
       if (ogUrl) ogUrl.setAttribute('content', `${WWW_BASE}/`)
       if (ogTitle) ogTitle.setAttribute('content', 'EspanjalainenRuoka.com — Espanjalainen ruoka, viinit ja elämä Espanjassa')
-      if (ogDesc) ogDesc.setAttribute('content', 'Yli 500 espanjalaista reseptiä, viinisuosituksia ja vinkkejä elämään Espanjassa.')
-      if (ogImage) ogImage.setAttribute('content', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=630&fit=crop')
+      if (ogDesc) ogDesc.setAttribute('content', 'Aidot espanjalaiset reseptit suomeksi — selkeät ohjeet ja tarinat Espanjasta.')
+      if (ogImage) ogImage.setAttribute('content', `${WWW_BASE}/images/hero-v3.jpg`)
       document.getElementById('recipe-jsonld')?.remove()
     }
   }, [recipe])
@@ -91,6 +99,11 @@ export default function Recipe() {
 
   if (!recipe) return <Navigate to="/" replace />
 
+  const hasIngredients = recipe.ingredients?.some(group => group.items.length)
+  const sections = recipe.body.split('\n').flatMap((line, index) =>
+    line.startsWith('## ') ? [{ title: line.slice(3).replace(/\*/g, ''), id: `section-${index + 1}` }] : [])
+  const method = sections.find(section => /valmistus|ohje/i.test(section.title))
+
   const toggleIngredient = key => setChecked(prev => ({ ...prev, [key]: !prev[key] }))
 
   const relatedRecipes = RECIPES
@@ -101,12 +114,6 @@ export default function Recipe() {
     <article className="recipe-page">
       <RecipeSEO recipe={recipe} />
 
-      {/* Hero image */}
-      <div className="rp-hero">
-        <img src={recipe.heroImage} alt={recipe.title} />
-        <div className="rp-hero-overlay" />
-      </div>
-
       {/* Content */}
       <div className="rp-container">
 
@@ -114,14 +121,15 @@ export default function Recipe() {
         <nav className="rp-breadcrumb" aria-label="Navigaatio">
           <Link to="/">Etusivu</Link>
           <span>/</span>
-          <Link to={`/?kategoria=${encodeURIComponent(recipe.category)}`}>{recipe.category}</Link>
+          <Link to={`/kategoria/${SLUG_FOR_CATEGORY[recipe.category]}`}>{categoryLabel(recipe.category)}</Link>
           <span>/</span>
           <span>{recipe.title}</span>
         </nav>
 
         {/* Title block */}
+        <div className="rp-opening">
         <header className="rp-header">
-          <span className="rp-category">{CATEGORY_ICONS[recipe.category]}{recipe.category}</span>
+          <span className="rp-category">{CATEGORY_ICONS[recipe.category]}{categoryLabel(recipe.category)}</span>
           <h1 className="rp-title">{recipe.title}</h1>
           {(recipe.time || recipe.difficulty) && (
           <div className="rp-meta-row">
@@ -144,39 +152,55 @@ export default function Recipe() {
               </div>
             </div>
             )}
+            {recipe.servings && <div className="rp-meta-divider" />}
+            {recipe.servings && (
+            <div className="rp-meta-item">
+              <Users />
+              <div><span className="rp-meta-label">Määrä</span><span className="rp-meta-value">{recipe.servings}</span></div>
+            </div>
+            )}
           </div>
           )}
           <p className="rp-description">{recipe.description}</p>
+          <div className="rp-actions">
+            {hasIngredients && <a href="#ainekset">Siirry reseptiin <ChevronDown size={16} /></a>}
+            {method && <a className="rp-action-secondary" href={`#${method.id}`}>Valmistusohje</a>}
+            <button type="button" onClick={() => window.print()}><Printer size={16} /> Tulosta</button>
+          </div>
         </header>
+        <div className="rp-hero">
+          <img src={recipe.heroImage} alt={recipe.title} fetchPriority="high" width="1536" height="1024" />
+        </div>
+        </div>
+
+        {sections.length > 0 && <details className="rp-contents">
+          <summary>Tässä artikkelissa <span>{sections.length} osiota</span></summary>
+          <nav aria-label="Artikkelin sisällysluettelo">{sections.map(section => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}</nav>
+        </details>}
 
         {/* Two-column layout */}
-        <div className="rp-body">
+        <div className={`rp-body ${hasIngredients ? '' : 'rp-body--article'}`}>
 
           {/* Ingredients — sticky sidebar */}
-          <aside className="rp-ingredients">
+          {hasIngredients && <aside className="rp-ingredients" id="ainekset">
             <div className="rp-ingredients-inner">
-              <h2 className="rp-section-title">Muistilista</h2>
-              <p className="rp-ingredients-hint">Tarvitset nämä!</p>
+              <h2 className="rp-section-title">Ainekset</h2>
+              <p className="rp-ingredients-hint">{recipe.servings && <>{recipe.servings}<br /></>}Merkitse ainekset sitä mukaa, kun käytät ne.</p>
               {(recipe.ingredients || []).map((group, gi) => (
                 <div key={gi} className="rp-ingredient-group">
                   {group.group && <h3 className="rp-group-title">{group.group}</h3>}
                   <ul className="rp-ingredient-list">
                     {group.items.map((item, ii) => {
-                      const key = `${gi}-${ii}`
+                      const key = `${slug}-${gi}-${ii}`
                       return (
                         <li
                           key={key}
                           className={`rp-ingredient ${checked[key] ? 'checked' : ''}`}
-                          onClick={() => toggleIngredient(key)}
                         >
-                          <span className="rp-checkbox">
-                            {checked[key] && (
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                                <path d="M20 6 9 17l-5-5"/>
-                              </svg>
-                            )}
-                          </span>
+                          <label>
+                          <input type="checkbox" checked={!!checked[key]} onChange={() => toggleIngredient(key)} />
                           <span className="rp-ingredient-text">{item}</span>
+                          </label>
                         </li>
                       )
                     })}
@@ -184,13 +208,13 @@ export default function Recipe() {
                 </div>
               ))}
             </div>
-          </aside>
+          </aside>}
 
           {/* Body — rendered from markdown */}
           <div className="rp-steps">
             <ReactMarkdown
               components={{
-                h2: ({ children }) => <h2 className="rp-section-title">{children}</h2>,
+                h2: ({ children, node }) => <h2 id={`section-${node.position.start.line}`} className="rp-section-title">{children}</h2>,
                 h3: ({ children }) => <h3 className="rp-md-h3">{children}</h3>,
                 ol: ({ children }) => <ol className="rp-step-list">{children}</ol>,
                 li: ({ children }) => (
@@ -223,7 +247,7 @@ export default function Recipe() {
             <h2 className="rp-related-title">Samasta kategoriasta</h2>
             <div className="rp-related-grid">
               {relatedRecipes.map(r => (
-                <Link key={r.id} to={`/resepti/${r.slug}`} className="rp-related-card">
+                <Link key={r.slug} to={`/resepti/${r.slug}`} className="rp-related-card">
                   <div className="rp-related-img">
                     <img src={r.heroImage} alt={r.title} loading="lazy" />
                   </div>

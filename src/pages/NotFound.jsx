@@ -23,7 +23,7 @@ export default function NotFound() {
       background: 'var(--cream)',
     }}>
       <span style={{ fontSize: '4rem', lineHeight: 1 }}>🍷</span>
-      <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '3rem', color: 'var(--red)' }}>
+      <h1 style={{ fontFamily: 'var(--serif)', fontSize: '3rem', color: 'var(--red)' }}>
         404
       </h1>
       <p style={{ fontSize: '1.2rem', color: 'var(--muted)', maxWidth: '36ch' }}>

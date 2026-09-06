@@ -1,136 +1,132 @@
-import { useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Leaf, Sun, MapPin, Star } from 'lucide-react'
-import { RECIPES, CATEGORIES } from '../lib/loadRecipes'
-import CATEGORY_ICONS from '../lib/categoryIcons'
+import { ArrowRight, ChefHat, Clock, Search, Sparkles } from 'lucide-react'
+import { CATEGORIES, RECIPES, SLUG_FOR_CATEGORY, categoryLabel } from '../lib/loadRecipes'
 
-const FEATURES = [
-  { label: 'Aitoa makua',  sub: 'Perinteitä kunnioittaen',          icon: <Leaf size={22} />,   color: '#6B7F5E', bg: 'rgba(107,127,94,0.12)'  },
-  { label: 'Aurinkoista',  sub: 'Raaka-aineet parhaimmillaan',       icon: <Sun size={22} />,    color: '#E8A400', bg: 'rgba(232,164,0,0.12)'   },
-  { label: 'Espanjasta',   sub: 'Tarinoita ja inspiraatiota',        icon: <MapPin size={22} />, color: '#C41E3A', bg: 'rgba(196,30,58,0.10)'   },
-  { label: 'Herkullista',  sub: 'Reseptit, joista tulee suosikkeja', icon: <Star size={22} />,   color: '#C41E3A', bg: 'rgba(196,30,58,0.10)'   },
+const FEATURED_SLUGS = [
+  'tapas-ilta-kotona',
+  'baskilainen-juustokakku',
+  'albondigas-espanjalaiset-lihapullat',
 ]
 
+const CATEGORY_COPY = {
+  'Ruoka ohjeet': 'Tapakset, klassikot ja arkiruoat Espanjan eri alueilta.',
+  'Jälkiruoat': 'Churrot ja muut makeat hetket café con lechen seuraksi.',
+  'Viinit & juomat': 'Sangria, cava ja viinit ilman turhaa pönötystä.',
+  'Elämää Espanjassa': 'Paikalliset tavat, kaupungit ja parhaat pöydät.',
+}
+
+export function RecipeCard({ recipe, featured = false }) {
+  return (
+    <Link to={`/resepti/${recipe.slug}`} className={`story-card ${featured ? 'story-card--featured' : ''}`}>
+      <div className="story-card__image">
+        <img src={recipe.heroImage} alt="" loading={featured ? 'eager' : 'lazy'} />
+        <span className="story-card__category">{categoryLabel(recipe.category)}</span>
+      </div>
+      <div className="story-card__body">
+        <div className="story-card__meta">
+          <span><Clock size={14} /> {recipe.time}</span>
+          {recipe.difficulty && <span>{recipe.difficulty}</span>}
+        </div>
+        <h3>{recipe.title}</h3>
+        <p>{recipe.description}</p>
+        <span className="story-card__link">Katso ohje <ArrowRight size={16} /></span>
+      </div>
+    </Link>
+  )
+}
+
 export default function Home() {
-  const [searchParams] = useSearchParams()
-  const [activeFilter, setActiveFilter] = useState(() => searchParams.get('category') || 'Kaikki')
-  const [search, setSearch] = useState(() => searchParams.get('search') || '')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const activeFilter = searchParams.get('category') || 'Kaikki'
+  const search = searchParams.get('search') || ''
 
-  useEffect(() => {
-    setActiveFilter(searchParams.get('category') || 'Kaikki')
-    setSearch(searchParams.get('search') || '')
-  }, [searchParams])
+  const featured = FEATURED_SLUGS.map(slug => RECIPES.find(r => r.slug === slug)).filter(Boolean)
+  const filtered = useMemo(() => RECIPES.filter(recipe => {
+    const ingredients = (recipe.ingredients || []).flatMap(group => group.items).join(' ')
+    const haystack = `${recipe.title} ${recipe.description} ${recipe.category} ${ingredients}`.toLocaleLowerCase('fi')
+    return (activeFilter === 'Kaikki' || recipe.category === activeFilter)
+      && haystack.includes(search.toLocaleLowerCase('fi'))
+  }), [activeFilter, search])
 
-  const filtered = RECIPES.filter(r => {
-    const matchesFilter = activeFilter === 'Kaikki' || r.category === activeFilter
-    const matchesSearch = r.title.toLowerCase().includes(search.toLowerCase())
-    return matchesFilter && matchesSearch
-  })
+  const updateFilter = category => {
+    const next = new URLSearchParams(searchParams)
+    category === 'Kaikki' ? next.delete('category') : next.set('category', category)
+    setSearchParams(next, { replace: true })
+  }
 
-  const [featured, ...rest] = filtered
+  const updateSearch = value => {
+    const next = new URLSearchParams(searchParams)
+    value ? next.set('search', value) : next.delete('search')
+    setSearchParams(next, { replace: true })
+  }
+
+  const handleSearch = event => {
+    event.preventDefault()
+    const next = new URLSearchParams(searchParams)
+    search.trim() ? next.set('search', search.trim()) : next.delete('search')
+    setSearchParams(next, { replace: true })
+    document.querySelector('#reseptit')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <>
-      {/* ── Hero ── */}
       <section className="hero">
-        <img
-          className="hero-img"
-          src="/hero-bg2.jpg"
-          alt=""
-          fetchPriority="high"
-        />
+        <img className="hero-img" src="/images/hero-v3.jpg" alt="Espanjalainen tapas-pöytä aurinkoisessa kodissa" fetchPriority="high" />
         <div className="hero-overlay" />
         <div className="hero-inner">
-          <h1 className="hero-title">
-            Aitoa makua<br/>Espanjan<br/>sydämestä.
-          </h1>
-          <div className="hero-divider" />
-          <p className="hero-subtitle">
-            Reseptit, raaka-aineet ja tarinat suoraan<br/>
-            Espanjan sydämestä. Aitoa. Aurinkoista.<br/>
-            Herkullista.
-          </p>
+          <p className="eyebrow eyebrow--light"><Sparkles size={14} /> Aidot maut · selkeät ohjeet</p>
+          <h1 className="hero-title">Espanja<br /><em>pöytään.</em></h1>
+          <p className="hero-subtitle">Aitoja reseptejä, käytännön vinkkejä ja tarinoita paikallisesta elämästä — suomalaisen kotikokin aineksilla.</p>
+          <form className="hero-search" onSubmit={handleSearch}>
+            <Search size={20} aria-hidden="true" />
+            <input value={search} onChange={event => updateSearch(event.target.value)} placeholder="Mitä tekisit tänään?" aria-label="Hae reseptejä" />
+            <button type="submit">Hae</button>
+          </form>
+          <div className="hero-quicklinks"><span>Suositut:</span><Link to="/resepti/tapas-ilta-kotona">tapas-ilta</Link><Link to="/resepti/aioli-valkosipulimajoneesi">aioli</Link><Link to="/resepti/baskilainen-juustokakku">juustokakku</Link></div>
         </div>
-        <div className="hero-wave">
-          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,32 C240,72 480,0 720,32 C960,64 1200,8 1440,32 L1440,72 L0,72 Z" fill="var(--cream)" />
-          </svg>
-        </div>
+        <div className="hero-note" aria-hidden="true"><span>01</span><p>Hyvä ruoka ei kaipaa kiirettä.</p></div>
       </section>
 
-      {/* ── Feature strip ── */}
-      <div className="feature-strip">
-        {FEATURES.map(f => (
-          <div key={f.label} className="feature-item">
-            <div className="feature-icon" style={{ color: f.color, background: f.bg }}>
-              {f.icon}
-            </div>
-            <div className="feature-text">
-              <strong>{f.label}</strong>
-              <span>{f.sub}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <main>
+        <section className="intro-band">
+          <div><p className="eyebrow">¡Bienvenidos!</p><h2>Keittiöstä alkaa paras matka Espanjaan.</h2></div>
+          <p>Ei oikoteitä eikä turhaa hienostelua. Vain toimivia reseptejä, hyviä raaka-aineita ja pieniä niksejä, joilla saat aidon espanjalaisen maun omaan keittiöösi.</p>
+          <div className="intro-stat"><strong>{RECIPES.length}</strong><span>reseptiä ja opasta</span></div>
+        </section>
 
-      {/* ── Main content ── */}
-      <main className="main">
-        <div className="filters-row">
-          <div className="filters">
-            {CATEGORIES.map(f => (
-              <button
-                key={f}
-                className={`filter-btn ${activeFilter === f ? 'active' : ''}`}
-                onClick={() => setActiveFilter(f)}
-              >
-                {CATEGORY_ICONS[f]}{f}
-              </button>
-            ))}
-          </div>
-          {search && <span className="results-count">&ldquo;{search}&rdquo; — {filtered.length} tulosta</span>}
-        </div>
-
-        {filtered.length === 0 ? (
-          <div className="no-results">
-            <span className="no-results-icon">🍷</span>
-            <p>Ei tuloksia haulle &ldquo;{search}&rdquo;</p>
-          </div>
-        ) : (
-          <div className="recipe-grid">
-            {featured && (
-              <Link to={`/resepti/${featured.slug}`} className="recipe-card card-featured">
-                <div className="card-image">
-                  <img src={featured.heroImage} alt={featured.title} fetchPriority="high" />
-                  <div className="card-overlay" />
-                  <span className="card-badge">{CATEGORY_ICONS[featured.category]}{featured.category}</span>
-                  <div className="card-text-overlay">
-                    <h2 className="card-title-lg">{featured.title}</h2>
-                    <div className="card-meta">
-                      <span className="meta-pill">⏱ {featured.time}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            )}
-
-            {rest.map(recipe => (
-              <Link key={recipe.id} to={`/resepti/${recipe.slug}`} className="recipe-card">
-                <div className="card-image">
-                  <img src={recipe.heroImage} alt={recipe.title} loading="lazy" />
-                  <div className="card-overlay" />
-                  <span className="card-badge">{CATEGORY_ICONS[recipe.category]}{recipe.category}</span>
-                </div>
-                <div className="card-body">
-                  <h3 className="card-title">{recipe.title}</h3>
-                  <div className="card-meta">
-                    <span className="meta-pill">⏱ {recipe.time}</span>
-                  </div>
-                  <div className="card-arrow">→</div>
-                </div>
-              </Link>
-            ))}
-          </div>
+        {featured.length > 0 && (
+          <section className="section-shell picks-section">
+            <div className="section-heading"><div><p className="eyebrow">Aloita näistä</p><h2>Rakastetuimmat klassikot</h2></div><a href="#reseptit" className="text-link">Kaikki reseptit <ArrowRight size={17} /></a></div>
+            <div className="picks-grid"><RecipeCard recipe={featured[0]} featured /><div className="picks-stack">{featured.slice(1).map(recipe => <RecipeCard key={recipe.slug} recipe={recipe} />)}</div></div>
+          </section>
         )}
+
+        <section className="category-section">
+          <div className="section-shell">
+            <div className="section-heading"><div><p className="eyebrow">Löydä oma makusi</p><h2>Tutki aiheita</h2></div></div>
+            <div className="category-grid">
+              {CATEGORIES.filter(category => category !== 'Kaikki').map((category, index) => (
+                <Link className="category-tile" to={`/kategoria/${SLUG_FOR_CATEGORY[category]}`} key={category}>
+                  <span className="category-tile__number">0{index + 1}</span><ChefHat size={22} /><h3>{categoryLabel(category)}</h3><p>{CATEGORY_COPY[category]}</p><span>{RECIPES.filter(recipe => recipe.category === category).length} juttua <ArrowRight size={16} /></span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell recipe-index" id="reseptit">
+          <div className="section-heading section-heading--recipes">
+            <div><p className="eyebrow">Keittiön uudet</p><h2>Reseptit ja tarinat</h2></div>
+            <form className="inline-search" onSubmit={handleSearch}><Search size={18} /><input value={search} onChange={event => updateSearch(event.target.value)} placeholder="Hae nimellä tai raaka-aineella" aria-label="Hae artikkeleista" /></form>
+          </div>
+          <div className="filter-tabs" role="group" aria-label="Suodata kategorian mukaan">{CATEGORIES.map(category => <button key={category} className={activeFilter === category ? 'active' : ''} onClick={() => updateFilter(category)}>{categoryLabel(category)}</button>)}</div>
+          {filtered.length ? <div className="latest-grid">{filtered.map(recipe => <RecipeCard key={recipe.slug} recipe={recipe} />)}</div> : <div className="no-results"><span>Ei osumia.</span><p>Kokeile toista hakusanaa tai näytä kaikki jutut.</p><button onClick={() => { updateSearch(''); updateFilter('Kaikki') }}>Tyhjennä haku</button></div>}
+        </section>
+
+        <section className="manifesto">
+          <div className="manifesto__mark">ER</div><div><p className="eyebrow eyebrow--light">Pala Espanjaa kotona</p><h2>Ruoka maistuu paremmalta, kun tunnet sen tarinan.</h2></div><p>Täällä resepti ei ole vain lista aineksia. Kerromme myös, mistä ruoka tulee, miten sitä syödään Espanjassa ja mikä yksityiskohta ratkaisee lopputuloksen.</p>
+        </section>
       </main>
     </>
   )
