@@ -34,3 +34,7 @@ npm run deploy
 ```
 
 Verkkotunnus säilyy `public/CNAME`-tiedoston avulla. Älä poista sitä.
+
+Julkaisu käyttää `scripts/deploy.mjs`-skriptiä ja olemassa olevaa `gh-pages`-haaraa. Skripti rakentaa Git-puun ilman työhakemistoa, jotta vanha `/resepti/Paras-sangria-ohje/` voidaan ohjata pienellä alkukirjaimella kirjoitettuun osoitteeseen myös macOS:n tiedostojärjestelmässä. Ohjaus on välitön HTML/JavaScript-ohjaus, ei palvelimen HTTP 301. Alkuperäinen resepti tarkistetaan ennen julkaisua, ja haaran historia säilytetään. HTTP-siirron yhteensopivuusasetukset koskevat vain julkaisuprosessia.
+
+Julkaisupuun voi tarkistaa lähettämättä muutoksia: `npm run build` ja `node scripts/deploy.mjs --dry-run`. Tarkistus hakee nykyisen julkaisuhaaran GitHubista. Väliaikainen Git-varasto luodaan käyttöjärjestelmän tilapäishakemistoon.
