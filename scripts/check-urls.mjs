@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
+import { legacyRedirects } from '../src/lib/legacyRedirects.js'
 
 const base = 'https://www.espanjalainenruoka.com'
 const sitemap = fs.readFileSync('dist/sitemap.xml', 'utf8')
@@ -24,4 +25,10 @@ for (const file of fs.readdirSync('src/content')) {
     assert.ok(urls.includes(base + href), `Invalid article link in ${file}: ${href}`)
   }
 }
-console.log(`Verified ${urls.length} final sitemap URLs, canonical tags, social URLs and article links.`)
+for (const [from, to] of Object.entries(legacyRedirects)) {
+  assert.ok(urls.includes(base + to), `Missing redirect destination: ${to}`)
+  const html = fs.readFileSync(path.join('dist', from, 'index.html'), 'utf8')
+  assert.ok(html.includes(`content="0;url=${base}${to}"`), `Wrong redirect: ${from}`)
+  assert.ok(!urls.includes(base + from + '/'), `Legacy URL in sitemap: ${from}`)
+}
+console.log(`Verified ${urls.length} final sitemap URLs and ${Object.keys(legacyRedirects).length} legacy redirects.`)

@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { legacyRedirects } from './src/lib/legacyRedirects.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -79,12 +80,15 @@ function sitemapPlugin() {
           image: imageUrl,
           body: fallback,
           schema: {
-            '@context': 'https://schema.org', '@type': 'Recipe', name: post.title,
+            '@context': 'https://schema.org', '@type': post.contentType || 'Recipe', name: post.title,
+            ...(post.contentType === 'Article' ? { headline: post.title } : {}),
             description: post.seoDescription || post.description, image: imageUrl,
-            datePublished: post.date, recipeCategory: post.category, inLanguage: 'fi',
-            recipeIngredient: allIngredients,
+            datePublished: post.date, inLanguage: 'fi',
+            ...(post.contentType === 'Article' ? {} : {
+            recipeCategory: post.category, recipeIngredient: allIngredients,
             ...(post.servings ? { recipeYield: post.servings } : {}),
             ...(instructions.length ? { recipeInstructions: instructions } : {}),
+            }),
             publisher: { '@type': 'Organization', name: 'EspanjalainenRuoka.com', url: baseUrl },
           },
         })
@@ -104,11 +108,7 @@ function sitemapPlugin() {
         })
       }
 
-      const redirects = {
-        '/paella': '/resepti/paella-valenciana/',
-        '/tortilla-de-patatas-peruna-munakas': '/resepti/tortilla-espanola/',
-        '/paras-sangria-ohje': '/resepti/paras-sangria-ohje/',
-      }
+      const redirects = legacyRedirects
       for (const [from, to] of Object.entries(redirects)) {
         const target = `${baseUrl}${to}`
         const output = path.resolve(__dirname, `dist${from}/index.html`)

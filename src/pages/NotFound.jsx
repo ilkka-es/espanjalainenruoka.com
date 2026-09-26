@@ -1,13 +1,9 @@
 import { Link, Navigate, useLocation } from 'react-router-dom'
-
-const REDIRECTS = {
-  '/paella/': '/resepti/paella-valenciana/',
-  '/paella':  '/resepti/paella-valenciana/',
-}
+import { legacyRedirects } from '../lib/legacyRedirects'
 
 export default function NotFound() {
   const { pathname } = useLocation()
-  const target = REDIRECTS[pathname]
+  const target = legacyRedirects[pathname.replace(/\/$/, '')]
   if (target) return <Navigate to={target} replace />
 
   return (

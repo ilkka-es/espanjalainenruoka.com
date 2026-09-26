@@ -51,11 +51,11 @@ function RecipeSEO({ recipe }) {
       .map(line => ({ '@type': 'HowToStep', text: line.replace(/^\d+\.\s*/, '').replace(/\*\*/g, '') }))
     const schema = {
       '@context': 'https://schema.org',
-      '@type': 'Recipe',
+      '@type': recipe.contentType || 'Recipe',
+      ...(recipe.contentType === 'Article' ? { headline: recipe.title } : {}),
       name: recipe.title,
       description: recipe.seoDescription,
       image: imageUrl,
-      recipeCategory: recipe.category,
       inLanguage: 'fi',
       url: pageUrl,
       datePublished: recipe.date,
@@ -64,9 +64,12 @@ function RecipeSEO({ recipe }) {
         name: 'EspanjalainenRuoka.com',
         url: WWW_BASE,
       },
+      ...(recipe.contentType === 'Article' ? {} : {
+      recipeCategory: recipe.category,
       recipeIngredient: allIngredients,
       ...(recipe.servings ? { recipeYield: recipe.servings } : {}),
       ...(instructions.length ? { recipeInstructions: instructions } : {}),
+      }),
     }
 
     let existing = document.getElementById('recipe-jsonld')
