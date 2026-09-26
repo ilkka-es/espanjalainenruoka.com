@@ -49,4 +49,4 @@ Laita puhtaaseen korkeaan astiaan uusi kananmunan keltuainen. Käynnistä sauvas
 
 Koska kastikkeessa on raakaa kananmunaa, käytä mahdollisimman tuoretta munaa, säilytä aioli koko ajan kylmässä ja syö vuorokauden kuluessa. Raskaana oleville, pienille lapsille ja vastustuskyvyltään heikentyneille kannattaa käyttää pastöroitua kananmunaa.
 
-Tarjoa aioli [patatas bravasin](/resepti/patatas-bravas-espanjan-suosituin-tapas), grillikasvisten, kalan tai [tapas-illan](/resepti/tapas-ilta-kotona) dippinä. Jos maku tuntuu heti liian terävältä, anna kastikkeen levätä jääkaapissa puoli tuntia — valkosipuli ja sitruuna ehtivät tasaantua.
+Tarjoa aioli [patatas bravasin](/resepti/patatas-bravas-espanjan-suosituin-tapas/), grillikasvisten, kalan tai [tapas-illan](/resepti/tapas-ilta-kotona/) dippinä. Jos maku tuntuu heti liian terävältä, anna kastikkeen levätä jääkaapissa puoli tuntia — valkosipuli ja sitruuna ehtivät tasaantua.

@@ -59,6 +59,6 @@ Vanukas itsessään onnistuu. Voit tarjota sen kylmänä ilman paahdettua pintaa
 
 Säilytä vanukkaat peitettyinä jääkaapissa ja tarjoa viimeistään seuraavana päivänä. Lisää ja paahda pintasokeri vasta tarjoiltaessa, sillä karamellipinta pehmenee jääkaapissa.
 
-Crema catalana päättää [tapas-illan](/resepti/tapas-ilta-kotona) pienellä makealla annoksella. Jos haluat leivottavan jälkiruoan, kokeile seuraavaksi [baskilaista juustokakkua](/resepti/baskilainen-juustokakku).
+Crema catalana päättää [tapas-illan](/resepti/tapas-ilta-kotona/) pienellä makealla annoksella. Jos haluat leivottavan jälkiruoan, kokeile seuraavaksi [baskilaista juustokakkua](/resepti/baskilainen-juustokakku/).
 
 *Kuva on tekoälyllä luotu tarjoiluehdotus. Reseptiä ei ole vielä koekeittiötestattu.*

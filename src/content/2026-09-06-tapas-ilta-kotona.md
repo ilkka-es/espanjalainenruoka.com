@@ -37,10 +37,10 @@ Tämä menu on rakennettu niin, että osa ruoista tehdään etukäteen ja vain k
 
 ## Helppo tapasmenu kuudelle
 
-- [Tortilla española](/resepti/tortilla-espanola) — ruokaisa, huoneenlämpöisenä tarjottava perunamunakas
-- [Albóndigas tomaattikastikkeessa](/resepti/albondigas-espanjalaiset-lihapullat) — lämmin ja mehevä pääroolin tapas
-- [Pimientos de Padrón](/resepti/pimientos-de-padron) — vihreä, suolainen ja viidessä minuutissa valmis
-- [Patatas bravas](/resepti/patatas-bravas-espanjan-suosituin-tapas) — rapeat perunat ja rohkea kastike
+- [Tortilla española](/resepti/tortilla-espanola/) — ruokaisa, huoneenlämpöisenä tarjottava perunamunakas
+- [Albóndigas tomaattikastikkeessa](/resepti/albondigas-espanjalaiset-lihapullat/) — lämmin ja mehevä pääroolin tapas
+- [Pimientos de Padrón](/resepti/pimientos-de-padron/) — vihreä, suolainen ja viidessä minuutissa valmis
+- [Patatas bravas](/resepti/patatas-bravas-espanjan-suosituin-tapas/) — rapeat perunat ja rohkea kastike
 - Pan con tomate — paahdettua leipää, tomaattia ja oliiviöljyä
 - Manchegoa, serranokinkkua ja oliiveja — kokkaamatta valmis kylmä lautanen
 
@@ -66,11 +66,11 @@ Jos tarjoat tapakset vain alkupalana, puolita lämpimien ruokien määrät.
 
 ## Vaihtelua seuraavaan tapas-iltaan
 
-[Pan con tomate -ohjeesta](/resepti/pan-con-tomate) löydät tarkat määrät ja vinkit rapeaan tomaattileipään. Jos haluat vaihtaa perunalisukkeen, kokeile [Kanarian kurttuperunoita ja mojo rojoa](/resepti/kurttuperunat-mojo) bravas-perunoiden sijaan. Jälkiruoaksi sopii [crema catalana](/resepti/crema-catalana): tee vanukas edellisenä päivänä ja paahda sokeripinta vasta tarjoiltaessa.
+[Pan con tomate -ohjeesta](/resepti/pan-con-tomate/) löydät tarkat määrät ja vinkit rapeaan tomaattileipään. Jos haluat vaihtaa perunalisukkeen, kokeile [Kanarian kurttuperunoita ja mojo rojoa](/resepti/kurttuperunat-mojo/) bravas-perunoiden sijaan. Jälkiruoaksi sopii [crema catalana](/resepti/crema-catalana/): tee vanukas edellisenä päivänä ja paahda sokeripinta vasta tarjoiltaessa.
 
 ## Mitä tapasten kanssa juodaan?
 
-Kuiva cava toimii koko menun läpi. Kevyt espanjalainen lager on mutkaton vaihtoehto, ja alkoholittomaksi juomaksi sopii sitruunalla maustettu kivennäisvesi. Jos haluat punaviiniä, valitse nuori, hedelmäinen Rioja eikä raskainta Gran Reservaa. Kesällä kannullinen [sangriaa](/resepti/paras-sangria-ohje) tekee kattauksesta juhlan.
+Kuiva cava toimii koko menun läpi. Kevyt espanjalainen lager on mutkaton vaihtoehto, ja alkoholittomaksi juomaksi sopii sitruunalla maustettu kivennäisvesi. Jos haluat punaviiniä, valitse nuori, hedelmäinen Rioja eikä raskainta Gran Reservaa. Kesällä kannullinen [sangriaa](/resepti/paras-sangria-ohje/) tekee kattauksesta juhlan.
 
 ## Kolme sääntöä onnistuneeseen iltaan
 

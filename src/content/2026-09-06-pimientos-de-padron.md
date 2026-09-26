@@ -42,4 +42,4 @@ Pannu antaa parhaan paistopinnan ja vie vain muutaman minuutin. Isolle joukolle 
 
 Pakkauksia näkyy isoissa ruokakaupoissa erityisesti keväästä syksyyn, usein nimillä Padrón, tapas-paprika tai paistopaprika. Shishito-paprika on lähin korvaaja. Tavallinen vihreä chili ei käy tilalle, koska se on huomattavasti tulisempi.
 
-Padrón-paprikat sopivat täydellisesti [tapas-iltaan](/resepti/tapas-ilta-kotona) tortillan, oliivien ja [aiolin](/resepti/aioli-valkosipulimajoneesi) rinnalle. Juomaksi käy kylmä lager, kuiva cava tai raikas albariño.
+Padrón-paprikat sopivat täydellisesti [tapas-iltaan](/resepti/tapas-ilta-kotona/) tortillan, oliivien ja [aiolin](/resepti/aioli-valkosipulimajoneesi/) rinnalle. Juomaksi käy kylmä lager, kuiva cava tai raikas albariño.

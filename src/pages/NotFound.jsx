@@ -1,8 +1,8 @@
 import { Link, Navigate, useLocation } from 'react-router-dom'
 
 const REDIRECTS = {
-  '/paella/': '/resepti/paella-valenciana',
-  '/paella':  '/resepti/paella-valenciana',
+  '/paella/': '/resepti/paella-valenciana/',
+  '/paella':  '/resepti/paella-valenciana/',
 }
 
 export default function NotFound() {

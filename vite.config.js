@@ -49,7 +49,7 @@ function sitemapPlugin() {
       const pageTemplate = fs.readFileSync(path.resolve(__dirname, 'dist/index.html'), 'utf-8')
 
       const writePage = (route, { title, description, image, body, schema }) => {
-        const canonical = `${baseUrl}${route}`
+        const canonical = `${baseUrl}${route.replace(/\/$/, '')}/`
         let html = pageTemplate
           .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
           .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
@@ -73,7 +73,7 @@ function sitemapPlugin() {
           text: plainText(line),
         }))
         const fallback = `<article class="seo-fallback"><p>${escapeHtml(post.category)}</p><h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.description)}</p>${allIngredients.length ? `<h2>Ainekset</h2><ul>${allIngredients.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}<h2>Ohje ja vinkit</h2><p>${escapeHtml(plainText(post.body))}</p></article>`
-        writePage(`/resepti/${post.slug}`, {
+        writePage(`/resepti/${post.slug}/`, {
           title: `${post.title} — EspanjalainenRuoka.com`,
           description: post.seoDescription || post.description,
           image: imageUrl,
@@ -96,18 +96,18 @@ function sitemapPlugin() {
       }
       for (const [slug, category] of Object.entries(categories)) {
         const matches = posts.filter(post => post.category === category)
-        writePage(`/kategoria/${slug}`, {
+        writePage(`/kategoria/${slug}/`, {
           title: `${category} — EspanjalainenRuoka.com`,
           description: `${category}: aidot espanjalaiset reseptit, oppaat ja vinkit suomeksi.`,
           image: `${baseUrl}/images/hero-v3.jpg`,
-          body: `<main class="seo-fallback"><h1>${escapeHtml(category)}</h1><ul>${matches.map(post => `<li><a href="/resepti/${post.slug}">${escapeHtml(post.title)}</a></li>`).join('')}</ul></main>`,
+          body: `<main class="seo-fallback"><h1>${escapeHtml(category)}</h1><ul>${matches.map(post => `<li><a href="/resepti/${post.slug}/">${escapeHtml(post.title)}</a></li>`).join('')}</ul></main>`,
         })
       }
 
       const redirects = {
-        '/paella': '/resepti/paella-valenciana',
-        '/tortilla-de-patatas-peruna-munakas': '/resepti/tortilla-espanola',
-        '/paras-sangria-ohje': '/resepti/paras-sangria-ohje',
+        '/paella': '/resepti/paella-valenciana/',
+        '/tortilla-de-patatas-peruna-munakas': '/resepti/tortilla-espanola/',
+        '/paras-sangria-ohje': '/resepti/paras-sangria-ohje/',
       }
       for (const [from, to] of Object.entries(redirects)) {
         const target = `${baseUrl}${to}`
@@ -118,10 +118,10 @@ function sitemapPlugin() {
 
       const postUrls = posts.map(post => {
         const lastmod = post.date ? new Date(post.date).toISOString().split('T')[0] : ''
-        return `  <url>\n    <loc>${baseUrl}/resepti/${post.slug}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+        return `  <url>\n    <loc>${baseUrl}/resepti/${post.slug}/</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
       })
 
-      const categoryUrls = Object.keys(categories).map(slug => `  <url>\n    <loc>${baseUrl}/kategoria/${slug}</loc>\n  </url>`)
+      const categoryUrls = Object.keys(categories).map(slug => `  <url>\n    <loc>${baseUrl}/kategoria/${slug}/</loc>\n  </url>`)
 
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

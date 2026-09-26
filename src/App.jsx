@@ -23,8 +23,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/resepti/:slug" element={<Recipe />} />
             <Route path="/kategoria/:slug" element={<Category />} />
-            <Route path="/tortilla-de-patatas-peruna-munakas/" element={<Navigate to="/resepti/tortilla-espanola" replace />} />
-            <Route path="/paras-sangria-ohje/" element={<Navigate to="/resepti/paras-sangria-ohje" replace />} />
+            <Route path="/tortilla-de-patatas-peruna-munakas/" element={<Navigate to="/resepti/tortilla-espanola/" replace />} />
+            <Route path="/paras-sangria-ohje/" element={<Navigate to="/resepti/paras-sangria-ohje/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

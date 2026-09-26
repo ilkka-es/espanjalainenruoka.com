@@ -59,6 +59,6 @@ Vältä suuria jauhoisia perunoita, jotka hajoavat ravisteltaessa. Pienet kiinte
 
 Kyllä. Tee kastike tarjoilupäivänä tai edellisenä päivänä ja säilytä peitettynä jääkaapissa. Sekoita ennen tarjoilua, sillä öljy voi erottua. Aloita pienellä chilimäärällä; sitä voi lisätä, mutta tulisuutta on vaikeampi ottaa pois.
 
-Tarjoa perunat grillikasvisten tai kalan lisukkeena. [Tapas-illassa](/resepti/tapas-ilta-kotona) ne voivat korvata [patatas bravasin](/resepti/patatas-bravas-espanjan-suosituin-tapas), jolloin et tarvitse kahta perunaruokaa. Lisädipiksi sopii [aioli](/resepti/aioli-valkosipulimajoneesi).
+Tarjoa perunat grillikasvisten tai kalan lisukkeena. [Tapas-illassa](/resepti/tapas-ilta-kotona/) ne voivat korvata [patatas bravasin](/resepti/patatas-bravas-espanjan-suosituin-tapas/), jolloin et tarvitse kahta perunaruokaa. Lisädipiksi sopii [aioli](/resepti/aioli-valkosipulimajoneesi/).
 
 *Kuva on tekoälyllä luotu tarjoiluehdotus. Reseptiä ei ole vielä koekeittiötestattu.*

@@ -10,7 +10,7 @@ const WWW_BASE = 'https://www.espanjalainenruoka.com'
 
 function RecipeSEO({ recipe }) {
   useEffect(() => {
-    const pageUrl = `${WWW_BASE}/resepti/${recipe.slug}`
+    const pageUrl = `${WWW_BASE}/resepti/${recipe.slug}/`
     const imageUrl = recipe.heroImage.startsWith('http') ? recipe.heroImage : `${WWW_BASE}${recipe.heroImage}`
 
     document.title = `${recipe.title} — EspanjalainenRuoka.com`
@@ -121,7 +121,7 @@ export default function Recipe() {
         <nav className="rp-breadcrumb" aria-label="Navigaatio">
           <Link to="/">Etusivu</Link>
           <span>/</span>
-          <Link to={`/kategoria/${SLUG_FOR_CATEGORY[recipe.category]}`}>{categoryLabel(recipe.category)}</Link>
+          <Link to={`/kategoria/${SLUG_FOR_CATEGORY[recipe.category]}/`}>{categoryLabel(recipe.category)}</Link>
           <span>/</span>
           <span>{recipe.title}</span>
         </nav>
@@ -247,7 +247,7 @@ export default function Recipe() {
             <h2 className="rp-related-title">Samasta kategoriasta</h2>
             <div className="rp-related-grid">
               {relatedRecipes.map(r => (
-                <Link key={r.slug} to={`/resepti/${r.slug}`} className="rp-related-card">
+                <Link key={r.slug} to={`/resepti/${r.slug}/`} className="rp-related-card">
                   <div className="rp-related-img">
                     <img src={r.heroImage} alt={r.title} loading="lazy" />
                   </div>

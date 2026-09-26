@@ -18,7 +18,7 @@ const CATEGORY_COPY = {
 
 export function RecipeCard({ recipe, featured = false }) {
   return (
-    <Link to={`/resepti/${recipe.slug}`} className={`story-card ${featured ? 'story-card--featured' : ''}`}>
+    <Link to={`/resepti/${recipe.slug}/`} className={`story-card ${featured ? 'story-card--featured' : ''}`}>
       <div className="story-card__image">
         <img src={recipe.heroImage} alt="" loading={featured ? 'eager' : 'lazy'} />
         <span className="story-card__category">{categoryLabel(recipe.category)}</span>
@@ -83,7 +83,7 @@ export default function Home() {
             <input value={search} onChange={event => updateSearch(event.target.value)} placeholder="Mitä tekisit tänään?" aria-label="Hae reseptejä" />
             <button type="submit">Hae</button>
           </form>
-          <div className="hero-quicklinks"><span>Suositut:</span><Link to="/resepti/tapas-ilta-kotona">tapas-ilta</Link><Link to="/resepti/aioli-valkosipulimajoneesi">aioli</Link><Link to="/resepti/baskilainen-juustokakku">juustokakku</Link></div>
+          <div className="hero-quicklinks"><span>Suositut:</span><Link to="/resepti/tapas-ilta-kotona/">tapas-ilta</Link><Link to="/resepti/aioli-valkosipulimajoneesi/">aioli</Link><Link to="/resepti/baskilainen-juustokakku/">juustokakku</Link></div>
         </div>
         <div className="hero-note" aria-hidden="true"><span>01</span><p>Hyvä ruoka ei kaipaa kiirettä.</p></div>
       </section>
@@ -107,7 +107,7 @@ export default function Home() {
             <div className="section-heading"><div><p className="eyebrow">Löydä oma makusi</p><h2>Tutki aiheita</h2></div></div>
             <div className="category-grid">
               {CATEGORIES.filter(category => category !== 'Kaikki').map((category, index) => (
-                <Link className="category-tile" to={`/kategoria/${SLUG_FOR_CATEGORY[category]}`} key={category}>
+                <Link className="category-tile" to={`/kategoria/${SLUG_FOR_CATEGORY[category]}/`} key={category}>
                   <span className="category-tile__number">0{index + 1}</span><ChefHat size={22} /><h3>{categoryLabel(category)}</h3><p>{CATEGORY_COPY[category]}</p><span>{RECIPES.filter(recipe => recipe.category === category).length} juttua <ArrowRight size={16} /></span>
                 </Link>
               ))}

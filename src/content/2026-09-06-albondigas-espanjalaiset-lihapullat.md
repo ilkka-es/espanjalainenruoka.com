@@ -60,6 +60,6 @@ Käytä jauhelihaa, jossa on riittävästi rasvaa. Sika-nauta toimii paremmin ku
 
 ## Voiko albóndigas tehdä etukäteen?
 
-Kyllä. Tämä on erinomainen tarjottava [tapas-iltaan](/resepti/tapas-ilta-kotona), sillä pullat voi valmistaa kaksi päivää etukäteen. Jäähdytä ne kastikkeessa ja lämmitä hitaasti kattilassa. Lisää tarvittaessa loraus vettä, jos kastike on jääkaapissa paksuuntunut.
+Kyllä. Tämä on erinomainen tarjottava [tapas-iltaan](/resepti/tapas-ilta-kotona/), sillä pullat voi valmistaa kaksi päivää etukäteen. Jäähdytä ne kastikkeessa ja lämmitä hitaasti kattilassa. Lisää tarvittaessa loraus vettä, jos kastike on jääkaapissa paksuuntunut.
 
 Pääruokana albóndigas maistuu paahdettujen perunoiden tai riisin kanssa. Tapaksena tarvitset vain hammastikut, lautasliinoja ja leipää — paljon leipää.

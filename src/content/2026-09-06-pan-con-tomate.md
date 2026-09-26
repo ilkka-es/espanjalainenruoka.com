@@ -19,7 +19,7 @@ ingredients:
       - "¼ tl suolaa tai maun mukaan"
 ---
 
-Pan con tomate on tomaattileipä, jossa täytteiden määrä ei ratkaise: tärkeintä on kypsän tomaatin maku ja leivän rapea pinta. Se sopii aamiaiseksi, pieneksi alkupalaksi tai [tapas-illan](/resepti/tapas-ilta-kotona) leiväksi. Tässä ohjeessa tomaatti raastetaan, joten annokset on helppo koota myös suomalaisista kauppatomaateista.
+Pan con tomate on tomaattileipä, jossa täytteiden määrä ei ratkaise: tärkeintä on kypsän tomaatin maku ja leivän rapea pinta. Se sopii aamiaiseksi, pieneksi alkupalaksi tai [tapas-illan](/resepti/tapas-ilta-kotona/) leiväksi. Tässä ohjeessa tomaatti raastetaan, joten annokset on helppo koota myös suomalaisista kauppatomaateista.
 
 Varaa neljälle yksi iso viipale kullekin. Jos pöydässä on monta muuta tapasta, halkaise valmiit leivät kahdeksaksi pieneksi palaksi.
 
@@ -53,6 +53,6 @@ Kataloniassa tomaattileipä tunnetaan nimellä *pa amb tomàquet*. Yksi perintei
 
 ## Mitä tomaattileivän kanssa tarjotaan?
 
-Pidä yksi tapas yksinkertaisena ja tuo vaihtelua muilla annoksilla. [Padrón-paprikat](/resepti/pimientos-de-padron) ja [espanjalainen perunamunakas](/resepti/tortilla-espanola) sopivat samaan pöytään. Tämä perusversio on vegaaninen, kun käytät vegaanista leipää. Gluteenittomaan annokseen valitse napakka gluteeniton leipä ja puhdas paahdin tai pannu.
+Pidä yksi tapas yksinkertaisena ja tuo vaihtelua muilla annoksilla. [Padrón-paprikat](/resepti/pimientos-de-padron/) ja [espanjalainen perunamunakas](/resepti/tortilla-espanola/) sopivat samaan pöytään. Tämä perusversio on vegaaninen, kun käytät vegaanista leipää. Gluteenittomaan annokseen valitse napakka gluteeniton leipä ja puhdas paahdin tai pannu.
 
 *Kuva on tekoälyllä luotu tarjoiluehdotus. Reseptiä ei ole vielä koekeittiötestattu.*
