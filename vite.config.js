@@ -5,6 +5,9 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { legacyRedirects } from './src/lib/legacyRedirects.js'
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import ReactMarkdown from 'react-markdown'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -73,7 +76,10 @@ function sitemapPlugin() {
           '@type': 'HowToStep',
           text: plainText(line),
         }))
-        const fallback = `<article class="seo-fallback"><p>${escapeHtml(post.category)}</p><h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.description)}</p>${allIngredients.length ? `<h2>Ainekset</h2><ul>${allIngredients.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}<h2>Ohje ja vinkit</h2><p>${escapeHtml(plainText(post.body))}</p></article>`
+        // Use the same Markdown renderer as the interactive article: preserve
+        // headings, lists and real anchors without allowing raw HTML injection.
+        const articleHtml = renderToStaticMarkup(createElement(ReactMarkdown, { children: post.body }))
+        const fallback = `<article class="seo-fallback"><nav aria-label="Murupolku"><a href="/">Etusivu</a></nav><p>${escapeHtml(post.category)}</p><h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.description)}</p>${allIngredients.length ? `<h2>Ainekset</h2><ul>${allIngredients.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${articleHtml}</article>`
         writePage(`/resepti/${post.slug}/`, {
           title: `${post.title} — EspanjalainenRuoka.com`,
           description: post.seoDescription || post.description,
@@ -98,6 +104,14 @@ function sitemapPlugin() {
         'ruoka-ohjeet': 'Ruoka ohjeet', 'jalkiruoat': 'Jälkiruoat',
         'viinit-ja-juomat': 'Viinit & juomat', 'elamaa-espanjassa': 'Elämää Espanjassa',
       }
+      // Render a useful homepage before JavaScript runs. React replaces this
+      // fallback on startup, preserving the existing interactive design.
+      writePage('/', {
+        title: 'EspanjalainenRuoka.com — Espanjalainen ruoka, viinit ja elämä Espanjassa',
+        description: 'Aidot espanjalaiset reseptit suomeksi: paella, tapakset, tortilla, sangria ja tarinat elämästä Espanjassa. Selkeät ohjeet suomalaisen kotikokin aineksilla.',
+        image: `${baseUrl}/images/hero-v3.jpg`,
+        body: `<main class="seo-fallback"><h1>Espanjalainen ruoka, viinit ja elämä Espanjassa</h1><p>Espanjalaiset reseptit suomeksi sekä oppaat Espanjan makuihin ja matkailuun.</p><nav aria-label="Kategoriat"><ul>${Object.entries(categories).map(([slug, label]) => `<li><a href="/kategoria/${slug}/">${escapeHtml(label)}</a></li>`).join('')}</ul></nav><h2>Reseptit ja oppaat</h2><ul>${posts.map(post => `<li><h3><a href="/resepti/${post.slug}/">${escapeHtml(post.title)}</a></h3><p>${escapeHtml(post.description)}</p></li>`).join('')}</ul></main>`,
+      })
       for (const [slug, category] of Object.entries(categories)) {
         const matches = posts.filter(post => post.category === category)
         writePage(`/kategoria/${slug}/`, {
