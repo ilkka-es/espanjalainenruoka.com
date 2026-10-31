@@ -15,6 +15,8 @@ Mitä tilata tapasbaarissa tai tarjota kotona? Tämä lista esittelee kymmenen t
 
 *Kansikuva on tekoälyllä tehty tapasaiheinen kuvitus.*
 
+Etsitkö tapasten lisäksi pääruokia ja jälkiruokia? Aloita laajemmasta [espanjalaisen ruoan oppaasta](/resepti/espanjalainen-ruoka-opas/).
+
 ## Perunat ja munakas
 
 **Patatas bravas** tuo pöytään perunaa ja kastiketta. Se sopii lämpimäksi lisukkeeksi, mutta kannattaa viimeistellä lähellä tarjoilua, jotta pinta ei pehmene odottaessa. Katso [patatas bravas -resepti](/resepti/patatas-bravas-espanjan-suosituin-tapas/).

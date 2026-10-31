@@ -65,6 +65,8 @@ Tämä on oma reittiehdotuksemme, ei virallinen opastettu kierros. Tarkista matk
 
 ## Mitä kannattaa maistaa?
 
+Jos ruokalistan nimet ovat vieraita, [espanjalaisen ruoan opas](/resepti/espanjalainen-ruoka-opas/) esittelee kaksitoista ruokaa ja auttaa valitsemaan ensimmäisen aterian.
+
 Espanjan matkailusivusto nostaa esiin espetot, paistetun kalan ja ajoblancon. Ajoblanco on kylmä manteli-valkosipulikeitto: huomioi manteli sekä reseptistä riippuva leipä, jos seurueessa on allergioita. Kerro allergiasta aina ravintolalle ja kysy myös valmistustavasta.
 
 Lounaslistojen lukemiseen auttaa [menu del día -oppaamme](/resepti/menu-del-dia/). Jos haluat jatkaa makumatkaa kotona, aloita [gazpachosta](/resepti/gazpacho-andaluz/) tai kokoa [tapas-ilta](/resepti/tapas-ilta-kotona/).

@@ -4,9 +4,9 @@ import { ArrowRight, ChefHat, Clock, Search, Sparkles } from 'lucide-react'
 import { CATEGORIES, RECIPES, SLUG_FOR_CATEGORY, categoryLabel } from '../lib/loadRecipes'
 
 const FEATURED_SLUGS = [
+  'espanjalainen-ruoka-opas',
   'tapas-ilta-kotona',
   'baskilainen-juustokakku',
-  'albondigas-espanjalaiset-lihapullat',
 ]
 
 const CATEGORY_COPY = {
