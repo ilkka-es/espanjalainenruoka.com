@@ -54,5 +54,3 @@ Kataloniassa tomaattileipä tunnetaan nimellä *pa amb tomàquet*. Yksi perintei
 ## Mitä tomaattileivän kanssa tarjotaan?
 
 Pidä yksi tapas yksinkertaisena ja tuo vaihtelua muilla annoksilla. [Padrón-paprikat](/resepti/pimientos-de-padron/) ja [espanjalainen perunamunakas](/resepti/tortilla-espanola/) sopivat samaan pöytään. Tämä perusversio on vegaaninen, kun käytät vegaanista leipää. Gluteenittomaan annokseen valitse napakka gluteeniton leipä ja puhdas paahdin tai pannu.
-
-*Kuva on tekoälyllä luotu tarjoiluehdotus. Reseptiä ei ole vielä koekeittiötestattu.*

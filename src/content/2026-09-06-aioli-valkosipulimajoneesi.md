@@ -6,7 +6,8 @@ time: 5 min
 difficulty: Helppo
 servings: noin 2,5 dl
 date: 2026-09-06
-heroImage: /images/aioli.jpg
+heroImage: /images/aioli-natural.jpg
+heroAlt: "Tekoälykuvitus aiolikulhosta, lusikasta ja valkosipulinkynnestä"
 description: "Paksu ja silkkinen aioli valmistuu sauvasekoittimella viidessä minuutissa. Varma tekniikka, jolla emulsio onnistuu ensimmäisellä kerralla."
 seoDescription: "Aioli eli valkosipulimajoneesi sauvasekoittimella 5 minuutissa. Helppo ja varma resepti sekä ohjeet liian löysän aiolin pelastamiseen."
 ingredients:

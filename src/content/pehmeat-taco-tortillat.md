@@ -6,7 +6,8 @@ time: 50 min
 difficulty: Helppo
 servings: 8 pientä tortillaa
 date: 2026-09-26
-heroImage: /images/hero-v3.jpg
+heroImage: /images/tortillas-natural.jpg
+heroAlt: "Tekoälykuvitus pinosta pehmeitä vehnätortilloja"
 description: "Tee pehmeät vehnätortillat ilman hiivaa. Taikinan lepo, ohut kaulinta ja lyhyt paisto auttavat pitämään letut taipuisina."
 seoDescription: "Pehmeät taco-tortillat itse: vehnäjauho, vesi, öljy ja suola. Ohje kahdeksaan pieneen tortillaan sekä vinkit kaulintaan ja lämmittämiseen."
 ingredients:
@@ -20,7 +21,6 @@ ingredients:
 
 Taco-tortilla on meksikolaistyylinen ohut leipä, ei espanjalainen perunamunakas. Jos etsit munista ja perunoista valmistettavaa tortillaa, siirry [tortilla española -ohjeeseen](/resepti/tortilla-espanola/). Tämä vehnäversio säilyttää sivuston vanhan tacoaiheen omana reseptinään.
 
-*Ohjetta ei ole vielä koekeitetty toimituksen keittiössä. Kansikuva on yleinen ruokakuvitus, ei kuva tällä ohjeella valmistetuista tortilloista.*
 
 ## Valmistus
 

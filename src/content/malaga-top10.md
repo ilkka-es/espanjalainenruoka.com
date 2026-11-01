@@ -6,14 +6,14 @@ category: Elämää Espanjassa
 time: 6 min luku
 difficulty: Matkaopas
 date: 2026-09-26
-heroImage: /images/tapas-ilta.jpg
+heroImage: /images/coast-natural.jpg
+heroAlt: "Tekoälykuvitus Välimeren rantakävelytiestä ja palmuista"
 description: "Mitä tehdä Málagassa? Kymmenen ideaa kaupunkilomaan sekä helppo kävelypäivä, jossa jää aikaa myös ruoalle."
 seoDescription: "Málaga top 10: Alcazaba, Atarazanas, vanhakaupunki ja merenranta. Suunnittele rento päivä nähtävyyksien ja paikallisten makujen parissa."
 ---
 
 Málagaan kannattaa tutustua muutama kortteli kerrallaan. Valitse päivälle yksi varsinainen vierailukohde ja jätä väliin aikaa lounaalle. Alla on kymmenen vaihtoehtoa – ei kiireessä suoritettava tehtävälista eikä paremmuusjärjestys.
 
-*Kansikuva on tekoälyllä luotu tapasaiheinen kuvitus, ei valokuva Málagasta. Opas perustuu lähteisiin, ei kirjoittajan omiin ravintolakäynteihin.*
 
 ## Kymmenen kohdetta Málagassa
 

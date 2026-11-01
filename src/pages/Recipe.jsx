@@ -172,7 +172,7 @@ export default function Recipe() {
           </div>
         </header>
         <div className="rp-hero">
-          <img src={recipe.heroImage} alt={recipe.title} fetchPriority="high" width="1536" height="1024" />
+          <img src={recipe.heroImage} alt={recipe.heroAlt || recipe.title} fetchPriority="high" width="1536" height="1024" />
         </div>
         </div>
 

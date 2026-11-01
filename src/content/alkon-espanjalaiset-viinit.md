@@ -5,7 +5,8 @@ contentType: Article
 category: Viinit & juomat
 time: 5 min luku
 date: 2026-10-31
-heroImage: /images/tapas-ilta.jpg
+heroImage: /images/vineyard-natural.jpg
+heroAlt: "Tekoälykuvitus viiniköynnöksistä kivisessä maisemassa"
 description: "Mitä Rioja, Tempranillo ja crianza tarkoittavat? Neutraali opas espanjalaisten viinien alueisiin, rypäleisiin ja etikettien sanastoon Alkon tietojen yhteydessä."
 seoDescription: "Alkon espanjalaiset viinit: mitä Rioja, Tempranillo, Albariño, Verdejo ja cava tarkoittavat? Selkeä opas viinialueisiin ja etikettien sanastoon."
 ---
@@ -14,7 +15,6 @@ seoDescription: "Alkon espanjalaiset viinit: mitä Rioja, Tempranillo, Albariño
 
 Tämä on riippumaton tietopaketti, ei Alkon julkaisu tai yhteistyöartikkeli. Se käsittelee viinien taustaa ja sanastoa ilman yksittäisten pullojen arvioita, hintavertailuja tai ostosuosituksia. Artikkeli ei ole ajantasainen luettelo myymälöiden valikoimista.
 
-*Kansikuva on sivuston tapasaiheinen tekoälykuvitus. Se ei esitä Alkon tuotteita tai myymälää.*
 
 ## Alue, rypäle ja viinin nimi eivät tarkoita samaa asiaa
 

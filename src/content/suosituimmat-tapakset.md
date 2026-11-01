@@ -6,14 +6,14 @@ category: Ruoka ohjeet
 time: 5 min luku
 difficulty: Opas
 date: 2026-09-26
-heroImage: /images/tapas-ilta.jpg
+heroImage: /images/tapas-natural.jpg
+heroAlt: "Tekoälykuvitus kroketeista, bravas-perunoista ja oliiveista baaritiskillä"
 description: "Tutustu tapasklassikoihin ja valitse omaan pöytään sopivat vaihtoehdot. Perunoita, katkarapuja, kasviksia ja pieniä leipiä reseptilinkkeineen."
 seoDescription: "Suosituimmat tapakset tutuksi: patatas bravas, tortilla, gambas al ajillo ja seitsemän muuta klassikkoa. Näin valitset tapakset koti-iltaan."
 ---
 
 Mitä tilata tapasbaarissa tai tarjota kotona? Tämä lista esittelee kymmenen tuttua vaihtoehtoa. Se ei ole myynti- tai hakutilastoihin perustuva suosituimmuusjärjestys: tarjonta ja paikalliset suosikit vaihtelevat Espanjan alueiden välillä.
 
-*Kansikuva on tekoälyllä tehty tapasaiheinen kuvitus.*
 
 Etsitkö tapasten lisäksi pääruokia ja jälkiruokia? Aloita laajemmasta [espanjalaisen ruoan oppaasta](/resepti/espanjalainen-ruoka-opas/).
 

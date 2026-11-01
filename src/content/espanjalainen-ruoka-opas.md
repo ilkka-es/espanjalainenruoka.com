@@ -5,7 +5,8 @@ contentType: Article
 category: Elämää Espanjassa
 time: 7 min luku
 date: 2026-10-31
-heroImage: /images/tapas-ilta.jpg
+heroImage: /images/spanish-lunch-natural.jpg
+heroAlt: "Tekoälykuvitus perunamunakkaasta, leivästä ja gazpachosta"
 description: "Mitä syödä Espanjassa? Tutustu 12 espanjalaiseen ruokaan, tunnista nimet ruokalistalta ja löydä reseptit myös suomalaiseen kotikeittiöön."
 seoDescription: "Mitä syödä Espanjassa? Opas 12 espanjalaiseen ruokaan: paella, tortilla, gazpacho, tapakset ja jälkiruoat. Ruokalistasanasto ja reseptit suomeksi."
 ---
@@ -14,7 +15,6 @@ seoDescription: "Mitä syödä Espanjassa? Opas 12 espanjalaiseen ruokaan: paell
 
 Tämä opas auttaa valitsemaan ensimmäisen aterian ja tunnistamaan espanjankieliset nimet. Mukana on myös reseptilinkkejä, jos haluat tuoda lomamakua kotiin. Lista on toimituksellinen valikoima, ei tilastollinen suosituimmuusjärjestys tai ravintola-arvostelu.
 
-*Kansikuva on sivuston aiemmin luotu tekoälykuvitus tapas-pöydästä, ei valokuva tietystä ravintolasta.*
 
 ## Mitä syödä Espanjassa ensimmäisellä lomalla?
 
